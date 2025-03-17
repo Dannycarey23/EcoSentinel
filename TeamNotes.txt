@@ -2,7 +2,7 @@
  - Software Engineering - COURSEWORK NOTES -
 -------------------------------------------------------------------------------------------------------------------------
 GITHUB Project URL: https://github.com/users/DavidEdMc/projects/1
-GITHUB Repo URL:	https://github.com/Dannycarey23/SET09102_CW
+GITHUB Repo URL:	https://github.com/Dannycarey23/EcoSentinel
 -------------------------------------------------------------------------------------------------------------------------
 -- Scenario --
 A regional environmental agency has tasked you with developing a cross-platform application to enhance their monitoring of local environmental conditions. 
