@@ -1,0 +1,186 @@
+-------------------------------------------------------------------------------------------------------------------------
+ - Software Engineering - COURSEWORK NOTES -
+-------------------------------------------------------------------------------------------------------------------------
+GITHUB Project URL: https://github.com/users/DavidEdMc/projects/1
+GITHUB Repo URL:	https://github.com/Dannycarey23/SET09102_CW
+-------------------------------------------------------------------------------------------------------------------------
+-- Scenario --
+A regional environmental agency has tasked you with developing a cross-platform application to enhance their monitoring of local environmental conditions. 
+The agency is focused on monitoring air quality, water quality, and weather conditions to ensure public safety and adherence to environmental regulations.
+
+The agency utilises a widespread network of sensors that collect data on air pollutants, water pH levels, and meteorological data. This data is vital for 
+the agency to make informed decisions and effectively address environmental issues.
+
+There are three categories of environmental data to be monitored:
+
+	- Air Quality: Requires real-time monitoring and analysis to identify trends or sudden changes.
+	- Water Quality: Continuous updates and detailed reports on chemical and biological content are necessary.
+	- Weather Conditions: Live tracking and forecasting are essential to anticipate and respond to environmental changes.
+
+An initial requirements elicitation session has identified the following user stories that the application should include:
+																								|-----------------------|
+																								| Team Member Interest 	|
+	- As an Environmental Scientist, I want to -												| -						|
+		- Manage sensor accounts and configure settings.										| - 					|
+		- View and analyse historical environmental data.										| -	DM					|
+		- Receive real-time alerts on threshold breaches, displayed on an interactive map.		| - DC					|
+		- Generate comprehensive reports on environmental trends.								| -						|
+		- Use a map to view real-time sensor statuses and alerts geographically.				| -	DC					|
+		- Locate and navigate to sensors in the field for maintenance or inspection purposes.	| -						|
+																								| -						|
+	- As an Operations Manager I want to -														| -						|
+		- Monitor the operational status of sensors.											| -						|
+		- Schedule maintenance and ensure timely checks.										| -						|
+		- Verify the accuracy and integrity of collected data.									| -						|
+		- Address and report sensor malfunctions or anomalies.									| -						|
+																								| -						|
+	- As an Administrator I want to -															| -						|
+		- Manage user access and roles within the application.									| - DM / DC				|
+		- Maintain high levels of system security and data protection.							| -						|
+		- Update sensor configurations and firmware.											| -						|
+		- Oversee data storage and implement backup strategies.									| - DM					|
+		- Requirements and support																| -						|
+																								|-----------------------|
+
+Overall, this assessment is worth 70% of the module mark. The report is worth 30% and the presentation is worth 40%.
+
+The app will be built in C# MAUI to enable cross-platform operation.
+
+Data management will be handled by a central SQL Server database. Example datasets for sensors, environmental measurements, and user accounts will 
+be provided.
+
+You will be working in a small team of three or four. Teams will be confirmed in week 6 immediately prior to Reading Week.
+
+The project will be managed using GitHub for code control and task management.
+
+Each member of the team is assessed individually according to their contribution to the project. There is no group element to the marking.
+
+If you use AI tools to help with your work, you must:
+
+Explain how the use of the tools fits into your overall workflow
+Explain how you ensured high-quality results from your selected tools
+Be prepared to answer questions on your use of AI tools in your presentation
+Support will be provided during the scheduled practical classes in the second half of the module.
+
+Development tasks
+Each team member must complete at least three separate development tasks related to the user stories provided, one for each of the roles 
+	- Environmental Scientist
+	- Operations Manager
+	- Administrator.
+
+For each task, you must
+
+Document the requirement elaboration in a GitHub issue in consultation with the rest of the team. (LO4)
+Create or update UML diagrams to visualise the application design. All documentation must be version-controlled. (LO1)
+Develop the application features using .NET MAUI, with a focus on code quality and user experience. (LO1)
+Implement unit tests for all public methods. (LO3)
+Document the quality of your code using appropriate metrics. (LO2)
+Generate HTML documentation to describe your code. (LO4)
+Use a systematic workflow for branching, pull requests, and code reviews. (LO2)
+Respond promptly to code review feedback and implement necessary changes. (LO2)
+In addition you must:
+
+Describe how the team's branching strategy supports both critical bug fixes and new feature development. (LO4)
+Take an active role in code reviews for peers to ensure code quality and adherence to project standards. (LO2)
+
+-------------------------------------------------------------------------------------------------------------------------
+	- Project Naming Conventions -
+- Branches -
+	- initial_TaskName (DM_EnvSci_01)
+- C# Classes -
+	- CamelCase
+- Methods/Functions -
+	- pascalCase
+- Variables
+	- snake_case
+-------------------------------------------------------------------------------------------------------------------------
+ Setup Tasks:
+	- Create Repo
+		- Basic C# Project
+		- MAUI compatibility
+		- ReadMe File with description of coursework
+		- .gitignore file (MAUI one)
+	- Create Project KANBAN
+		- DONE
+	- Breakown Project Tasks
+		- Manage Sensor Accounts and Configure Settings
+			- Manage Sensor Accounts
+					- Long/Lat Location
+				- Weather Accounts
+					- Timeszone
+					- Elevation
+				- Water Accounts
+					- Water Quality
+				- Air Accounts
+					- Site Type
+					- Zone
+					- Agglomeration
+					- Local Authority
+			- Configure Sensor Settings
+				- Turn on and off sensor
+				- Set alert threshold#
+		- View and Analyse Historical and Environmental Data
+			- View Historical Data
+				- Last 6 months 
+				- Year To Date
+			- View Environmental Data
+		- Receive Real-Time Alerts on Thresholds Breaches - on Interactive Map
+			- Generate Alerts
+				- Pop-up on application
+				- Send Email notification, ETC
+			- Choose a Map Interface (GoogleMaps, ETC) 
+		- Generate Comprehensive Reports on Environmental Trends
+			- Export data as PDF/CSV/Email/ETC
+		- Use Map to view Real-Time Sensor Status and Alert geographically
+			- Choose Map Interface (GoogleMaps, ETC)
+			- Alerts (Eg: Location node colour change)
+		- Locate and Navigate to Sensors in the Field for Maintenance or Inspection Purposes
+			- Choose Map Interface (GoogleMaps, ETC)
+				- Requires GPS coordinates/current location on device
+				- Requires GPS coordinates/current location of sensors
+		- Monitor Operation Status of Sensors
+			- Application page showing Sensor status (ON/OFF, Active Alert, Maintenance Alert, ETC)
+		- Schedule Maintenance and Ensure Timely Checks
+			- Schedule Board/Maintenance date?, Maintenance Completed (YES/NO)
+		- Verify the Accuracy and Integrity of collected Data
+			- Display/Notification of Outlier data
+		- Address and Report Sensor Malfunctions or Anomolies
+			- Notes on sensor accounts
+			- Forms for reporting anomolies (Send to email)
+		- Manage User Access and Roles Within the Application 
+			- Administration Page
+				- Create User Accounts
+				- User Permissions/Rights
+			- Login page
+				- Password Requirements
+		- Maintain High levels of system security and data protection
+			- Security
+				- Password protection
+				- User Access protection
+			- Data Protection
+				- Tokenization of data (Passwords, Etc)
+				- User Persmissions Access Hierachy
+					- Only access OWN account informed
+					- Admin - Access all Accounts
+					- ETC
+		- Update sensor configurations and firmware.
+			- Sensor Measurement Frequency (Metadata.xlsx)
+				- Hourly, Daily, Weekly, ETC
+			- Safe Levels
+			- Firmware Version
+			- ETC
+		- Oversee Data Storage and Implement Backup Strategies
+			- Implement Database
+			- Implement Backup process
+			- Visualize Database Data
+
+	- Breakdown SAMPLE Data (provided)
+		- Metadata.xlsx
+			- Columns
+		- Air_quality.xlsx
+			- Columns
+		- Water_quality.xlsx
+			- Columns
+		- Weather.xlsx
+			- Columns
+	
