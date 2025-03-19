@@ -1,6 +1,6 @@
 ## GITHUB URLS
-GITHUB Project URL: https://github.com/users/Dannycarey23/projects/1
-GITHUB Repo URL:	https://github.com/Dannycarey23/EcoSentinel
+- GITHUB Project URL: https://github.com/users/Dannycarey23/projects/1
+- GITHUB Repo URL:	https://github.com/Dannycarey23/EcoSentinel
 
 ## Project Naming Conventions -
 - Branches
