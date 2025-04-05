@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using EcoSentinel.ViewModel;
+
 
 namespace EcoSentinel;
 
@@ -14,6 +16,14 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+
+		builder.Services.AddSingleton<MainPageViewModel>();
+		builder.Services.AddSingleton<MainPage>();
+		
+		builder.Services.AddTransient<LandingPageViewModel>();
+		builder.Services.AddTransient<LandingPage>();
+
+		
 
 #if DEBUG
 		builder.Logging.AddDebug();
