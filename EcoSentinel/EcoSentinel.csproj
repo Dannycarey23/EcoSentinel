@@ -65,4 +65,10 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="View\HistoricalPage.xaml.cs">
+	    <DependentUpon>HistoricalPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
 </Project>
