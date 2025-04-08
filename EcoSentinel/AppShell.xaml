@@ -11,9 +11,5 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-    <ShellContent
-        Title="Landing Page"
-        ContentTemplate="{DataTemplate local:LandingPage}"
-        Route="LandingPage" />
 
 </Shell>
