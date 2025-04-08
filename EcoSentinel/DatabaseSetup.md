@@ -53,8 +53,6 @@ CREATE TABLE sensors (
 --Create waterdata table
 CREATE TABLE waterdata (
 	dataID int IDENTITY (1,1),
-    samplePeriodStart DATE NOT NULL,
-	samplePeriodEnd DATE NOT NULL,
 	sensorID INT NOT NULL,
 	sensorType VARCHAR(25) NOT NULL,
 	date DATE NOT NULL,
@@ -64,9 +62,7 @@ CREATE TABLE waterdata (
 	phosphateMgl1 FLOAT,
 	ecCfu100ml FLOAT,
 	PRIMARY KEY (dataID),
-    FOREIGN KEY (sensorID) REFERENCES sensors(sensorID),
-	CONSTRAINT chk_date CHECK (date BETWEEN samplePeriodStart AND samplePeriodEnd),
-	CONSTRAINT chk_inDate CHECK (samplePeriodStart <= samplePeriodEnd)
+    FOREIGN KEY (sensorID) REFERENCES sensors(sensorID)
 );
 
 --Create airdata table
