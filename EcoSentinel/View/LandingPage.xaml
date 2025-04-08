@@ -1,0 +1,116 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoSentinel.LandingPage">
+
+    <Grid>
+        <!-- Define the layout rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <!-- Header -->
+            <RowDefinition Height="*"/>
+            <!-- Content -->
+            <RowDefinition Height="20"/>
+            <!-- Footer -->
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0"
+              BackgroundColor="Purple">
+            <Label Text="EcoSentinel"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="Gold"/>
+        </Grid>
+
+        <!-- Content Area -->
+        <Grid Grid.Row="1"
+              Padding="50, 150">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Grid Squares -->
+            <Frame
+                x:Name="waterFrame"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="5"
+                BackgroundColor="LightBlue">
+                <Image Source="water.png"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HeightRequest="100"/>
+            </Frame>
+
+            <Frame
+                x:Name="windFrame"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5"
+                BackgroundColor="LightBlue">
+                <Image Source="wind.png"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HeightRequest="100"/>
+            </Frame>
+            <Frame
+                x:Name="weatherFrame"
+                Grid.Row="0"
+                Grid.Column="2"
+                Margin="5"
+                BackgroundColor="LightBlue">
+                <Image Source="weather.png"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HeightRequest="100"/>
+            </Frame>
+            <Frame
+                x:Name="historicalFrame"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="5"
+                BackgroundColor="LightBlue">
+                <Image Source="historical.png"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HeightRequest="100"/>
+            </Frame>
+            <Frame
+                x:Name="adminFrame"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5"
+                BackgroundColor="LightBlue">
+                <Image Source="admin.png"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HeightRequest="100"/>
+            </Frame>
+            <Frame Grid.Row="1" Grid.Column="2" Margin="5" BackgroundColor="LightGray"/>
+            <Frame Grid.Row="2" Grid.Column="0" Margin="5" BackgroundColor="LightGray"/>
+            <Frame Grid.Row="2" Grid.Column="1" Margin="5" BackgroundColor="LightGray"/>
+            <Frame Grid.Row="2" Grid.Column="2" Margin="5" BackgroundColor="LightGray"/>
+        </Grid>
+
+        <!-- Footer -->
+        <Grid Grid.Row="2"
+              BackgroundColor="Purple">
+            <Label Text="Currently logged in as: Admin"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="Gold"/>
+        </Grid>
+    </Grid>
+</ContentPage>
