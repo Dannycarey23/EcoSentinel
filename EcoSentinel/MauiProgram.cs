@@ -2,7 +2,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
-
+using EcoSentinel.ViewModel;
 
 namespace EcoSentinel;
 
@@ -27,6 +27,18 @@ public static class MauiProgram
 			
 		builder.Configuration.AddConfiguration(config);
 
+		builder.Services.AddSingleton<MainPageViewModel>();
+		builder.Services.AddSingleton<MainPage>();
+		
+		builder.Services.AddTransient<LandingPageViewModel>();
+		builder.Services.AddTransient<LandingPage>();
+
+		builder.Services.AddSingleton<MainPageViewModel>();
+		builder.Services.AddSingleton<MainPage>();
+		
+		builder.Services.AddTransient<LandingPageViewModel>();
+		builder.Services.AddTransient<LandingPage>();
+		
 
 #if DEBUG
 		builder.Logging.AddDebug();
