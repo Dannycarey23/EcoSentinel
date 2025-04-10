@@ -1,5 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EcoSentinel.View"
              x:Class="EcoSentinel.LandingPage">
 
     <Grid>
@@ -14,12 +15,8 @@
         </Grid.RowDefinitions>
 
         <!-- Header -->
-        <Grid Grid.Row="0"
-              BackgroundColor="Purple">
-            <Label Text="EcoSentinel"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   TextColor="Gold"/>
+        <Grid Grid.Row="0" >
+            <local:HeaderPage/>
         </Grid>
 
         <!-- Content Area -->
@@ -105,12 +102,8 @@
         </Grid>
 
         <!-- Footer -->
-        <Grid Grid.Row="2"
-              BackgroundColor="Purple">
-            <Label Text="Currently logged in as: Admin"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   TextColor="Gold"/>
+        <Grid Grid.Row="2" >
+            <local:FooterPage/>
         </Grid>
     </Grid>
 </ContentPage>
