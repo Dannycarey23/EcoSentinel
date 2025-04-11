@@ -37,6 +37,9 @@ public static class MauiProgram
 		builder.Services.AddTransient<LandingPageViewModel>();
 		builder.Services.AddTransient<LandingPage>();
 
+		builder.Services.AddTransient<AirSensorPageViewModel>();
+		builder.Services.AddTransient<AirSensorPage>();
+
 		
 
 #if DEBUG
