@@ -7,6 +7,6 @@ public partial class AirSensorPageViewModel : ObservableObject
 {
     public AirSensorPageViewModel()
     {
-        // Constructor logic can go here if needed
+        
     }
 }

@@ -18,7 +18,14 @@
     <ShellContent
         Title="AirSensorPage"
         ContentTemplate="{DataTemplate local:AirSensorPage}"
-        Route="AirSensorPage" />    
-
+        Route="AirSensorPage" />
+    <ShellContent
+        Title="WaterSensorPage"
+        ContentTemplate="{DataTemplate local:WaterSensorPage}"
+        Route="WaterSensorPage" />
+    <ShellContent 
+        Title="WeatherSensorPage"
+        ContentTemplate="{DataTemplate local:WeatherSensorPage}"
+        Route="WeatherSensorPage" />
 
 </Shell>

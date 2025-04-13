@@ -40,6 +40,11 @@ public static class MauiProgram
 		builder.Services.AddTransient<AirSensorPageViewModel>();
 		builder.Services.AddTransient<AirSensorPage>();
 
+		builder.Services.AddTransient<WaterSensorPageViewModel>();
+		builder.Services.AddTransient<WaterSensorPage>();
+
+		builder.Services.AddTransient<WeatherSensorPageViewModel>();
+		builder.Services.AddTransient<WeatherSensorPage>();
 		
 
 #if DEBUG
