@@ -1,8 +1,11 @@
-using System;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace EcoSentinel.ViewModel;
 
-public class WaterSensorPageViewModel
+public class WaterSensorPageViewModel : ObservableObject
 {
-
+    public WaterSensorPageViewModel()
+    {
+        
+    }
 }

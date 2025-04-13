@@ -45,6 +45,9 @@
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        HeightRequest="100"/>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="waterSensorFrameTapped" />
+                </Frame.GestureRecognizers>
             </Frame>
 
             <Frame
@@ -73,6 +76,9 @@
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        HeightRequest="100"/>
+                       <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="weatherSensorFrameTapped" />
+                </Frame.GestureRecognizers>
             </Frame>
             <Frame
                 x:Name="historicalFrame"

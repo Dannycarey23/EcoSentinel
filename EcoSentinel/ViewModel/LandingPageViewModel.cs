@@ -13,11 +13,6 @@ public partial class LandingPageViewModel : ObservableObject
             await Shell.Current.GoToAsync(nameof(LandingPage));
         });
     }
-    // public void OnWindFrameTapped(object sender, EventArgs e)
-	// {
-	// 	// Navigate to the WindSensorPage when the WindFrame is tapped
-	// 	Shell.Current.GoToAsync(nameof(AirSensorPage));
-      
-	// }
+   
 }
 

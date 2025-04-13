@@ -12,7 +12,15 @@ public partial class LandingPage : ContentPage
 
 	public void airSensorFrameTapped(object sender, EventArgs e)
 	{
-		// Navigate to the WindSensorPage when the WindFrame is tapped
 		Shell.Current.GoToAsync(nameof(AirSensorPage));
+	}
+	public void waterSensorFrameTapped(object sender, EventArgs e)
+	{
+		Shell.Current.GoToAsync(nameof(WaterSensorPage));
+	}
+
+	public void weatherSensorFrameTapped(object sender, EventArgs e)
+	{
+		Shell.Current.GoToAsync(nameof(WeatherSensorPage));
 	}
 }
