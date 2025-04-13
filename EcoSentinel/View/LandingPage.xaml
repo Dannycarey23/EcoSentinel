@@ -35,7 +35,7 @@
 
             <!-- Grid Squares -->
             <Frame
-                x:Name="waterFrame"
+                x:Name="waterSensorFrame"
                 Grid.Row="0"
                 Grid.Column="0"
                 Margin="5"
@@ -48,7 +48,7 @@
             </Frame>
 
             <Frame
-                x:Name="windFrame"
+                x:Name="airSensorFrame"
                 Grid.Row="0"
                 Grid.Column="1"
                 Margin="5"
@@ -58,9 +58,12 @@
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        HeightRequest="100"/>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="airSensorFrameTapped" />
+                </Frame.GestureRecognizers>
             </Frame>
             <Frame
-                x:Name="weatherFrame"
+                x:Name="WeatherSensorFrame"
                 Grid.Row="0"
                 Grid.Column="2"
                 Margin="5"

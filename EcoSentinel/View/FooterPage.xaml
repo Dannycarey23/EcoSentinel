@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EcoSentinel.View.FooterPage"
-             Title="FooterPage">
+             x:Class="EcoSentinel.View.FooterPage">
     <Grid BackgroundColor="Purple">
         <Label Text="Currently logged in as: Admin"
                    HorizontalOptions="Center"

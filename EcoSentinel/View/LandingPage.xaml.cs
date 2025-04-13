@@ -9,4 +9,10 @@ public partial class LandingPage : ContentPage
 		InitializeComponent();
 		BindingContext = new LandingPageViewModel();
 	}
+
+	public void airSensorFrameTapped(object sender, EventArgs e)
+	{
+		// Navigate to the WindSensorPage when the WindFrame is tapped
+		Shell.Current.GoToAsync(nameof(AirSensorPage));
+	}
 }

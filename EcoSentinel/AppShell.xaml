@@ -15,5 +15,10 @@
         Title="Landing Page"
         ContentTemplate="{DataTemplate local:LandingPage}"
         Route="LandingPage" />
+    <ShellContent
+        Title="AirSensorPage"
+        ContentTemplate="{DataTemplate local:AirSensorPage}"
+        Route="AirSensorPage" />    
+
 
 </Shell>

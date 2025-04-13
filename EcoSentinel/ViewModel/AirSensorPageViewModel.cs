@@ -1,8 +1,12 @@
 using System;
-
+using CommunityToolkit.Mvvm.ComponentModel;
 namespace EcoSentinel.ViewModel;
 
-public class AirSensorPageViewModel
-{
 
+public partial class AirSensorPageViewModel : ObservableObject
+{
+    public AirSensorPageViewModel()
+    {
+        // Constructor logic can go here if needed
+    }
 }
