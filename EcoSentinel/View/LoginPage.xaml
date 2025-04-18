@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EcoSentinel"
+             xmlns:viewmodel="clr-namespace:EcoSentinel.ViewModel"
+             x:Class="EcoSentinel.View.LoginPage"
+             Title="LoginPage">
+
+    <Grid RowDefinitions="80,50*,50,50,50,50,50" 
+        ColumnDefinitions="50*,50*"
+        RowSpacing="10"
+        ColumnSpacing="10">
+        <!--HEADER (Row 0)-->
+        <Image Grid.ColumnSpan="2"
+            Source="eco_sentinel_logo_v3.png"
+            Grid.Row="0"
+            BackgroundColor="Purple"/>
+        <!--LOGO (Row 1)-->
+        <Image Grid.ColumnSpan="2"
+            Source="eco_sentinel_logo_v2.png"
+            Grid.Row="1"/>
+        <!--Username Entry (Row 2)-->
+        <Entry Placeholder="Username"
+            Text="{Binding Username}"
+            Grid.ColumnSpan="2"
+            Grid.Row="2"/>
+        <!--Password Entry (Row 3)-->
+        <Entry Placeholder="Password"
+            Text="{Binding Password}"
+            IsPassword="true"
+            Grid.ColumnSpan="2"
+            Grid.Row="3"/>
+        <!--LOGIN & REGISTER BUTTONS (Row 4)-->
+        <Button Text="Login"
+            Command="{Binding LoginCommand}"
+            Grid.Row="4"
+            Grid.Column="0"/>
+        <Button Text="Register"
+            Command="{Binding RegisterCommand}"
+            Grid.Row="4"
+            Grid.Column="1"/>
+        <!--LOGIN MESSAGE (Row 5)-->
+        <Label Text="{Binding LoginMessage}"
+            TextColor="Red"
+            HorizontalOptions="Center"
+            Grid.ColumnSpan="2"
+            Grid.Row="5"
+            />
+        <!--FOOTER (Row 6)-->
+        <Image
+            Grid.ColumnSpan="2"
+            Grid.Row="6"
+            BackgroundColor="purple"/> 
+    </Grid>
+</ContentPage>

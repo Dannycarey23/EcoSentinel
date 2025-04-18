@@ -22,7 +22,7 @@
             
             <Button
                 x:Name="NextPageTempBtn"
-                Text="Click to go to Landing Page"
+                Text="Click to go to Login Page"
                 Command="{Binding NavigateCommand}"
                 SemanticProperties.HeadingLevel="Level3"
                 HorizontalOptions="Center" />
