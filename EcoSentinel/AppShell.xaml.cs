@@ -1,4 +1,5 @@
-﻿namespace EcoSentinel;
+﻿using EcoSentinel.View;
+namespace EcoSentinel;
 
 public partial class AppShell : Shell
 {
@@ -10,5 +11,6 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute(nameof(AirSensorPage), typeof(AirSensorPage));
 		Routing.RegisterRoute(nameof(WaterSensorPage), typeof(WaterSensorPage));
 		Routing.RegisterRoute(nameof(WeatherSensorPage), typeof(WeatherSensorPage));
+		Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
 	}
 }

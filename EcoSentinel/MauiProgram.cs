@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using EcoSentinel.ViewModel;
+using EcoSentinel.View;
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
@@ -45,6 +46,9 @@ public static class MauiProgram
 
 		builder.Services.AddTransient<WeatherSensorPageViewModel>();
 		builder.Services.AddTransient<WeatherSensorPage>();
+
+		builder.Services.AddTransient<LoginPageViewModel>();
+		builder.Services.AddTransient<LoginPage>();
 		
 
 #if DEBUG

@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:EcoSentinel"
+    xmlns:view="clr-namespace:EcoSentinel.View"
     Shell.FlyoutBehavior="Flyout"
     Title="EcoSentinel">
 
@@ -27,5 +28,9 @@
         Title="WeatherSensorPage"
         ContentTemplate="{DataTemplate local:WeatherSensorPage}"
         Route="WeatherSensorPage" />
+    <ShellContent 
+        Title="LoginPage"
+        ContentTemplate="{DataTemplate view:LoginPage}"
+        Route="LoginPage" />
 
 </Shell>

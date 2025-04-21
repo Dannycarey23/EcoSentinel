@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcoSentinel.View.HeaderPage">
     <Grid BackgroundColor="Purple">
-        <Label Text="EcoSentinel"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   TextColor="Gold"/>
+        <Image Source="eco_sentinel_logo_v3.png"
+                Aspect ="AspectFit"/>
     </Grid>
 </ContentView>
