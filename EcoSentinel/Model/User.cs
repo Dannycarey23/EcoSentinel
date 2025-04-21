@@ -1,31 +1,44 @@
 using System;
 using CommunityToolkit.Mvvm.ComponentModel;
+using EcoSentinel.Model;
 
 namespace EcoSentinel;
 
 public class User
 {
+    public DatabaseService db;
     public string username;
-    private string password;
+    public string password;
     public string role;
+    public string email;
+    public string fname;
+    public string lname;
 
     public User()
     {
-        username = "Admin";
-        password = "EcoSentinel25";
-        role = "Admin";
+        db = new DatabaseService();
     }
 
     public bool LoginAuthenticated(string u, string p)
     {
-        if(u == this.username && p == this.password)
-        {
-            return true;
+        bool valid = false;
+        foreach (var item in db.PopulateUserData())
+        { 
+            if(valid == false)
+            {
+                if(u == item.username && p == item.password)
+                {
+                    valid = true;
+                }
+                else
+                {
+                    valid = false;
+                }
+            }
         }
-        else 
-        {
-            return false;
-        }
+
+        return valid;
+
     }
 
 }
