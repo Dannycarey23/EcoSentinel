@@ -36,11 +36,8 @@ public partial class LoginPageViewModel: ObservableObject
     private async Task LoginAuthentication(string u, string p)
     {
         User user = new User();
-        user.username = "Admin";
-        user.password = "EcoSentinel25";        
-        user.role = "Admin";
         
-        if(u == user.username  && p == user.password)
+        if(user.LoginAuthenticated(u,p))
         {
             await NavigateToLanding();
         }
