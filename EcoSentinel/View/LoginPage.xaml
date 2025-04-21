@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:EcoSentinel"
              xmlns:viewmodel="clr-namespace:EcoSentinel.ViewModel"
-             x:Class="EcoSentinel.View.LoginPage"
-             Title="LoginPage">
+             x:Class="EcoSentinel.View.LoginPage">
 
     <Grid RowDefinitions="80,50*,50,50,50,50,50" 
         ColumnDefinitions="50*,50*"
@@ -12,7 +11,6 @@
         ColumnSpacing="10">
         <!--HEADER (Row 0)-->
         <Image Grid.ColumnSpan="2"
-            Source="eco_sentinel_logo_v3.png"
             Grid.Row="0"
             BackgroundColor="Purple"/>
         <!--LOGO (Row 1)-->

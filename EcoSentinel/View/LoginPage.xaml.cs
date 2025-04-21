@@ -4,9 +4,9 @@ namespace EcoSentinel.View;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage()
+	public LoginPage(LoginPageViewModel vm)
 	{
 		InitializeComponent();
-		BindingContext = new LoginPageViewModel();
+		BindingContext = vm;
 	}
 }

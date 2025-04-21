@@ -127,3 +127,16 @@ CREATE TABLE maintenance (
 	FOREIGN KEY (performedBy) REFERENCES users (username),
 	FOREIGN KEY (scheduledBy) REFERENCES users (username)
 );
+
+# Insert Statements
+
+## Users TABLE
+insert into users (username,[password],role,email,fname,lname)
+VALUES 
+('Admin','EcoSentinel25','Admin','40783357@live.napier.ac.uk','Admin','User'),
+('DavidMc','EcoSentinel2025','Admin','40783357@live.napier.ac.uk','David','McIntyre'),
+('DannyC','EcoSentinel4Life','Admin','40783356@live.napier.ac.uk','Danny','Carey'),
+('EdwardE','octoberThirteenth','EnvSci','fma@email.com','Edward','Elric'),
+('WinryR','iLuvAutomail3000','OpsMan','rockbellWorks@email.com','Winry','Rockbell'),
+('LinkK','heroOfTimeN64','EnvSci','hyaaaah@email.com','Link','Kokiri'),
+('ZeldaH','peachSucksN64','OpsMan','tough_princess@email.com','Zelda','Hyrule');

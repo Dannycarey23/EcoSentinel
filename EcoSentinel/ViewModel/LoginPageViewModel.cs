@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using EcoSentinel.View;
 
 namespace EcoSentinel.ViewModel;
 
@@ -17,16 +18,9 @@ public partial class LoginPageViewModel: ObservableObject
     private string? loginMessage;
 
     [RelayCommand]
-    private void Login()
+    private async Task Login()
     {
-        if(Username == "Admin" && Password == "EcoSentinel25")
-        {
-            LoginMessage = "Login Successful!";
-        }
-        else
-        {
-            LoginMessage = "Invalid Username or Password entered!";
-        }
+        await LoginAuthentication(Username, Password);
     }
     [RelayCommand]
     private void Register()
@@ -34,4 +28,25 @@ public partial class LoginPageViewModel: ObservableObject
         LoginMessage = "Redirecting to Registration Page...";
     }
 
+    async Task NavigateToLanding()
+    {
+        await Shell.Current.GoToAsync(nameof(LandingPage));
+    }
+
+    private async Task LoginAuthentication(string u, string p)
+    {
+        User user = new User();
+        user.username = "Admin";
+        user.password = "EcoSentinel25";        
+        user.role = "Admin";
+        
+        if(u == user.username  && p == user.password)
+        {
+            await NavigateToLanding();
+        }
+        else
+        {
+            LoginMessage = "Invalid Username or Password entered!";
+        }
+    }
 }
