@@ -18,9 +18,6 @@
             </Grid>
             
             <Grid Grid.Row="1" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -62,11 +59,7 @@
                 </Border>
             </Grid>
         
-            <Grid Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>            
-            
+            <Grid Grid.Row="2">           
                 <Border x:Name="sensorDataFrame"
                         Grid.Row="0"
                         Grid.Column="0" 

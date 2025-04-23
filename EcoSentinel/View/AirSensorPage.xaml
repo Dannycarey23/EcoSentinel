@@ -21,10 +21,7 @@
             <local:HeaderPage/>
         </Grid>
 
-        <Grid Grid.Row="1" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="1" >            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -67,10 +64,6 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
             <Border x:Name="sensorDataFrame"
                 Grid.Row="0"
                 Grid.Column="0" 
