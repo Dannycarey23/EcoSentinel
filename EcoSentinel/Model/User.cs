@@ -22,23 +22,15 @@ public class User
     public bool LoginAuthenticated(string u, string p)
     {
         bool valid = false;
+            
         foreach (var item in db.PopulateUserData())
         { 
-            if(valid == false)
-            {
-                if(u == item.username && p == item.password)
+            if(u == item.username && p == item.password)
                 {
                     valid = true;
-                }
-                else
-                {
-                    valid = false;
-                }
-            }
+                }                
         }
-
         return valid;
-
     }
 
 }
