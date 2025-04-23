@@ -4,6 +4,7 @@ using EcoSentinel.View;
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
+using EcoSentinel.Model;
 
 
 
@@ -31,7 +32,6 @@ public static class MauiProgram
 			
 		builder.Configuration.AddConfiguration(config);
 
-
 		builder.Services.AddSingleton<MainPageViewModel>();
 		builder.Services.AddSingleton<MainPage>();
 		
@@ -49,6 +49,9 @@ public static class MauiProgram
 
 		builder.Services.AddTransient<LoginPageViewModel>();
 		builder.Services.AddTransient<LoginPage>();
+
+		builder.Services.AddSingleton<UserService>();
+		builder.Services.AddTransient<FooterPageViewModel>();
 		
 
 #if DEBUG
