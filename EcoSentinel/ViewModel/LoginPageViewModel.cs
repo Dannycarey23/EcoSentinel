@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using EcoSentinel.Model;
 using EcoSentinel.View;
 
 namespace EcoSentinel.ViewModel;
@@ -16,6 +17,12 @@ public partial class LoginPageViewModel: ObservableObject
     private string? password;
     [ObservableProperty]
     private string? loginMessage;
+    private readonly UserService _userService;
+
+    public LoginPageViewModel(UserService userService)
+    {
+        _userService = userService;
+    }
 
     [RelayCommand]
     private async Task Login()
@@ -39,6 +46,7 @@ public partial class LoginPageViewModel: ObservableObject
         
         if(user.LoginAuthenticated(u,p))
         {
+            CurrentlyLoggedInUser(u);
             await NavigateToLanding();
         }
         else
@@ -46,4 +54,10 @@ public partial class LoginPageViewModel: ObservableObject
             LoginMessage = "Invalid Username or Password entered!";
         }
     }
+
+    private void CurrentlyLoggedInUser(string u)
+    {
+        _userService.username = u;
+    }
+    
 }
