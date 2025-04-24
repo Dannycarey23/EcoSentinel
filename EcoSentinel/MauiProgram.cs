@@ -52,6 +52,9 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<UserService>();
 		builder.Services.AddTransient<FooterPageViewModel>();
+
+		builder.Services.AddTransient<AdministrationPageViewModel>();
+		builder.Services.AddTransient<AdministrationPage>();
 		
 
 #if DEBUG

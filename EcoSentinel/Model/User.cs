@@ -26,9 +26,9 @@ public class User
         foreach (var item in db.PopulateUserData())
         { 
             if(u == item.username && p == item.password)
-                {
-                    valid = true;
-                }                
+            {
+                valid = true;
+            }                
         }
         return valid;
     }
