@@ -38,4 +38,34 @@ public class DatabaseService
             return items;
         }
     }
+
+    public IEnumerable<SensorModel> PopulateSensorData()
+    {
+        var items = new ObservableCollection<SensorModel>();
+        using (SqlConnection con = new SqlConnection(ConnectionString))
+        {
+            con.Open();
+            using (SqlCommand cmd = new SqlCommand("SELECT sensorId, sensorType, sensorStatus, latitude, longitude, siteName, siteType FROM dbo.sensors", con))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        items.Add(new SensorModel
+                        {
+                            sensorId = (int)reader["sensorId"],
+                            sensorType = (string)reader["sensorType"],
+                            sensorStatus = (string)reader["sensorStatus"],
+                            latitude = Convert.ToDouble(reader["latitude"]),
+                            longitude = Convert.ToDouble(reader["longitude"]),
+                            siteName = (string)reader["siteName"],
+                            siteType = (string)reader["siteType"]
+                        });
+                    }
+                }
+                
+            } return items;
+        }
+
+    }
 }

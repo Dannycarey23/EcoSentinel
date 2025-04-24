@@ -54,11 +54,18 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-
                     <Label Grid.Row="0" Text="Sensor List" Padding="8" Background="LightGray" />
-                    <Label Grid.Row="1" Text="Node 1" Padding="8" />
-                    <Label Grid.Row="2" Text="Node 2" Padding="8" />
-                    <Label Grid.Row="3" Text="Node 3" Padding="8" />
+
+                    <ListView Grid.Row="1" Grid.RowSpan="3"
+                              ItemsSource="{Binding SensorData}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding siteName}" Padding="8" FontSize="18"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </Grid>
             </Border>
         </Grid>
