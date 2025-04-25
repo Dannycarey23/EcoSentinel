@@ -32,5 +32,5 @@
         Title="LoginPage"
         ContentTemplate="{DataTemplate view:LoginPage}"
         Route="LoginPage" />
-
+    
 </Shell>

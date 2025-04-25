@@ -8,19 +8,25 @@ namespace EcoSentinel.Model
 {
     public class WeatherDataModel
     {
-		public int dataID { get; }
-		public int sensorID { get; }
-		public string sensorType { get; }
-		public float elevation { get; } 
-		public int utcOffsetSeconds { get; }
-		public string timezone { get; }
-		public string timezoneAbr { get; }
-		public DateOnly date { get; }
-		public TimeSpan time { get; }
-		public float temp2m { get; }
-		public float relativeHumidity2m { get; }
-		public float windSpeed { get; }
-		public int windDirection { get; }
- 
+        public DatabaseService db;
+        public required int dataID { get; set; }
+        public required int sensorID { get; set; }
+        public required string sensorType { get; set; }
+        public required float elevation { get; set; }
+        public required int utcOffsetSeconds { get; set; }
+        public required string timezone { get; set; }
+        public required string timezoneAbr { get; set; }
+        public required DateOnly date { get; set; }
+        public required TimeSpan time { get; set; }
+        public required float temp2m { get; set; }
+        public required float relativeHumidity2m { get; set; }
+        public required float windSpeed { get; set; }
+        public required int windDirection { get; set; } 
+    
+    public WeatherDataModel()
+        {
+            db = new DatabaseService();
+        }
     }
+
 }
