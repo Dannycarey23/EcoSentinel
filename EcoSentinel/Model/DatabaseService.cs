@@ -70,51 +70,51 @@ public class DatabaseService
 
     }
 
-    // public void AddUserData(string u, string p, string r, string em, string fn, string ln)
-    // {
-    //     using (SqlConnection conn = new SqlConnection(ConnectionString))
-    //     {
-    //         conn.Open();
-    //         using (SqlCommand cmd = new SqlCommand("INSERT INTO users (username, [password], role, email, fname, lname) VALUES (@u, @p, @r, @em, @fn, @ln)", conn))
-    //         {
-    //             cmd.Parameters.AddWithValue("@u", u);
-    //             cmd.Parameters.AddWithValue("@p", p);
-    //             cmd.Parameters.AddWithValue("@r", r);
-    //             cmd.Parameters.AddWithValue("@em", em);
-    //             cmd.Parameters.AddWithValue("@fn", fn);
-    //             cmd.Parameters.AddWithValue("@ln", ln);
+    public void AddUserData(string u, string p, string r, string em, string fn, string ln)
+    {
+        using (SqlConnection conn = new SqlConnection(ConnectionString))
+        {
+            conn.Open();
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO users (username, [password], role, email, fname, lname) VALUES (@u, @p, @r, @em, @fn, @ln)", conn))
+            {
+                cmd.Parameters.AddWithValue("@u", u);
+                cmd.Parameters.AddWithValue("@p", p);
+                cmd.Parameters.AddWithValue("@r", r);
+                cmd.Parameters.AddWithValue("@em", em);
+                cmd.Parameters.AddWithValue("@fn", fn);
+                cmd.Parameters.AddWithValue("@ln", ln);
 
-    //             cmd.ExecuteNonQuery();
-    //         }
-    //     }
-    // }
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
 
 
-    // public void DeleteUserData(string u)
-    // {
-    //     using (SqlConnection conn = new SqlConnection(ConnectionString))
-    //     {
-    //         conn.Open();
-    //         using (SqlCommand cmd = new SqlCommand("DELETE FROM users WHERE username = @u", conn))
-    //         {
-    //             cmd.Parameters.AddWithValue("@u", u);
-    //             cmd.ExecuteNonQuery();
-    //         }
-    //     }
-    // }
+    public void DeleteUserData(string u)
+    {
+        using (SqlConnection conn = new SqlConnection(ConnectionString))
+        {
+            conn.Open();
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM users WHERE username = @u", conn))
+            {
+                cmd.Parameters.AddWithValue("@u", u);
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
 
-    // public void SetPasswordData(string u,string p)
-    // {
-    //     using (SqlConnection conn = new SqlConnection(ConnectionString))
-    //     {
-    //         conn.Open();
-    //         using (SqlCommand cmd = new SqlCommand("UPDATE users SET [password] = @p WHERE username = @u;", conn))
-    //         {
-    //             cmd.Parameters.AddWithValue("@u", u);
-    //             cmd.Parameters.AddWithValue("@p", p);
-    //             cmd.ExecuteNonQuery();
-    //         }
-    //     }
-    // }
+    public void SetPasswordData(string u,string p)
+    {
+        using (SqlConnection conn = new SqlConnection(ConnectionString))
+        {
+            conn.Open();
+            using (SqlCommand cmd = new SqlCommand("UPDATE users SET [password] = @p WHERE username = @u;", conn))
+            {
+                cmd.Parameters.AddWithValue("@u", u);
+                cmd.Parameters.AddWithValue("@p", p);
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
 
 }

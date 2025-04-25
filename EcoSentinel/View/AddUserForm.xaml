@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoSentinel.View.AddUserForm">
+    <Grid RowDefinitions="*,*,*,*,*,*,*"
+        ColumnDefinitions="50*,50*">
+        <Entry Grid.Row="0" Grid.ColumnSpan="2" Placeholder="Username" Text="{Binding NewUser.username}"/>
+        <Entry Grid.Row="1" Grid.ColumnSpan="2" Placeholder="Password" Text="{Binding NewUser.password}"/>
+        <Entry Grid.Row="2" Grid.ColumnSpan="2" Placeholder="Role" Text="{Binding NewUser.role}"/>
+        <Entry Grid.Row="3" Grid.ColumnSpan="2" Placeholder="Email Address" Text="{Binding NewUser.email}"/>
+        <Entry Grid.Row="4" Grid.ColumnSpan="2" Placeholder="First Name" Text="{Binding NewUser.fname}"/>
+        <Entry Grid.Row="5" Grid.ColumnSpan="2" Placeholder="Last Name" Text="{Binding NewUser.lname}"/>
+        <Button Grid.Row="6" Grid.Column="0" Text="Add User" Command="{Binding OpenAddUserFormCommand}"/>
+        <Button Grid.Row="6" Grid.Column="1" Text="Cancel" Command="{Binding CancelCommand}"/>
+    </Grid>
+</ContentPage>

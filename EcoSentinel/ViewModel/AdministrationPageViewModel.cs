@@ -36,14 +36,6 @@ public partial class AdministrationPageViewModel : INotifyPropertyChanged
     public async Task PopulateUserList()
     {
         var dataList = db.PopulateUserData();
-        if (dataList != null && dataList.Any())
-        {
-            Console.WriteLine("Data populated successfully.");
-        }
-        else
-        {
-            Console.WriteLine("No data found.");
-        }
         UserList = new ObservableCollection<User>(dataList);
     }
 
@@ -52,6 +44,36 @@ public partial class AdministrationPageViewModel : INotifyPropertyChanged
     protected virtual void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    [RelayCommand]
+    public async Task AddUser()
+    {
+        string u, p, r, em, fn,ln;
+        u="newUser";
+        p="newUserPassword";
+        r="OpsMan";
+        em="newuser@email.com";
+        fn="new";
+        ln="user";
+        db.AddUserData(u,p,r,em,fn,ln);
+        db.PopulateUserData();
+    }
+
+    [RelayCommand]
+    public async Task DeleteUser()
+    {
+        string u = "newUser";
+        db.DeleteUserData(u);
+        db.PopulateUserData();
+    }
+
+    [RelayCommand]
+    public async Task PasswordReset()
+    {
+        string u ="Admin";
+        string p ="EcoSentinel25";
+        db.SetPasswordData(u,p);
     }
 }
 
