@@ -10,57 +10,48 @@ using EcoSentinel.View;
 
 namespace EcoSentinel.ViewModel;
 
-public partial class AdministrationPageViewModel : ObservableObject
+public partial class AdministrationPageViewModel : INotifyPropertyChanged
 {
-    private ObservableCollection<User> _userList;
     private readonly DatabaseService db;
-    private readonly UserService _userService;
-
-    public AdministrationPageViewModel(UserService userService)
-    {
-        _userService = userService;
-        db = new DatabaseService();
-        PopulateUserList();
-    }
+    private ObservableCollection<User> _userList;
 
     public ObservableCollection<User> UserList
     {
         get => _userList;
-        set => SetProperty(ref _userList, value);
+        set 
+        {
+            _userList = value;
+            OnPropertyChanged(nameof(UserList));
+        }
+    }
+
+    public AdministrationPageViewModel()
+    {
+        _userList = new ObservableCollection<User>();
+        db = new DatabaseService();
+        PopulateUserList();
     }
 
     [RelayCommand]
     public async Task PopulateUserList()
     {
-        UserList = (ObservableCollection<User>)db.PopulateUserData();
+        var dataList = db.PopulateUserData();
+        if (dataList != null && dataList.Any())
+        {
+            Console.WriteLine("Data populated successfully.");
+        }
+        else
+        {
+            Console.WriteLine("No data found.");
+        }
+        UserList = new ObservableCollection<User>(dataList);
     }
 
-    // [RelayCommand]
-    // public async Task AddUser()
-    // {
-    //     string u="newUser";
-    //     string p="NewPassword";
-    //     string r="EnvSci";
-    //     string em="newUser@email.com";
-    //     string fn="New";
-    //     string ln = "User";
-    //     db.AddUserData(u,p,r,em,fn,ln);
-    // }
 
-    // [RelayCommand]
-    // public async Task DeleteUser()
-    // {
-    //     string u = "newUser";
-    //     db.DeleteUserData(u);
-    // }
-    
-    // [RelayCommand]
-    // public async Task PasswordReset()
-    // {
-    //     string u = "newUser";
-    //     string p = "newerPassword";
-    //     db.SetPasswordData(u,p);
-    // }
-
-
+    public event PropertyChangedEventHandler? PropertyChanged;
+    protected virtual void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 }
+

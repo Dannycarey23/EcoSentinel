@@ -4,9 +4,9 @@ namespace EcoSentinel.View;
 
 public partial class AdministrationPage : ContentPage
 {
-	public AdministrationPage(AdministrationPageViewModel vm)
+	public AdministrationPage()
 	{
 		InitializeComponent();
-		BindingContext = vm;
+		BindingContext = new AdministrationPageViewModel();
 	}
 }
