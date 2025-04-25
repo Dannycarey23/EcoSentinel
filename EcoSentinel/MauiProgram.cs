@@ -6,8 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using EcoSentinel.Model;
 
-
-
 namespace EcoSentinel;
 
 public static class MauiProgram
@@ -22,15 +20,6 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-
-		var a = Assembly.GetExecutingAssembly();
-		using var stream = a.GetManifestResourceStream("EcoSentinel.appsettings.json");
-			
-		var config = new ConfigurationBuilder()
-			.AddJsonStream(stream)
-			.Build();
-			
-		builder.Configuration.AddConfiguration(config);
 
 		builder.Services.AddSingleton<MainPageViewModel>();
 		builder.Services.AddSingleton<MainPage>();
@@ -51,8 +40,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<LoginPage>();
 
 		builder.Services.AddSingleton<UserService>();
-		builder.Services.AddTransient<FooterPageViewModel>();
-		
+		builder.Services.AddTransient<FooterPageViewModel>();	
 
 #if DEBUG
 		builder.Logging.AddDebug();
