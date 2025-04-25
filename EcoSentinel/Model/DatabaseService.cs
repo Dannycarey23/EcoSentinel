@@ -40,51 +40,33 @@ public class DatabaseService
         }
     }
 
-    // public void AddUserData(string u, string p, string r, string em, string fn, string ln)
-    // {
-    //     using (SqlConnection conn = new SqlConnection(ConnectionString))
-    //     {
-    //         conn.Open();
-    //         using (SqlCommand cmd = new SqlCommand("INSERT INTO users (username, [password], role, email, fname, lname) VALUES (@u, @p, @r, @em, @fn, @ln)", conn))
-    //         {
-    //             cmd.Parameters.AddWithValue("@u", u);
-    //             cmd.Parameters.AddWithValue("@p", p);
-    //             cmd.Parameters.AddWithValue("@r", r);
-    //             cmd.Parameters.AddWithValue("@em", em);
-    //             cmd.Parameters.AddWithValue("@fn", fn);
-    //             cmd.Parameters.AddWithValue("@ln", ln);
+    public IEnumerable<SensorModel> PopulateSensorData()
+    {
+        var items = new ObservableCollection<SensorModel>();
+        using (SqlConnection con = new SqlConnection(ConnectionString))
+        {
+            con.Open();
+            using (SqlCommand cmd = new SqlCommand("SELECT sensorId, sensorType, sensorStatus, latitude, longitude, siteName, siteType FROM dbo.sensors", con))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        items.Add(new SensorModel
+                        {
+                            sensorId = (int)reader["sensorId"],
+                            sensorType = (string)reader["sensorType"],
+                            sensorStatus = (string)reader["sensorStatus"],
+                            latitude = Convert.ToDouble(reader["latitude"]),
+                            longitude = Convert.ToDouble(reader["longitude"]),
+                            siteName = (string)reader["siteName"],
+                            siteType = (string)reader["siteType"]
+                        });
+                    }
+                }
+                
+            } return items;
+        }
 
-    //             cmd.ExecuteNonQuery();
-    //         }
-    //     }
-    // }
-
-
-    // public void DeleteUserData(string u)
-    // {
-    //     using (SqlConnection conn = new SqlConnection(ConnectionString))
-    //     {
-    //         conn.Open();
-    //         using (SqlCommand cmd = new SqlCommand("DELETE FROM users WHERE username = @u", conn))
-    //         {
-    //             cmd.Parameters.AddWithValue("@u", u);
-    //             cmd.ExecuteNonQuery();
-    //         }
-    //     }
-    // }
-
-    // public void SetPasswordData(string u,string p)
-    // {
-    //     using (SqlConnection conn = new SqlConnection(ConnectionString))
-    //     {
-    //         conn.Open();
-    //         using (SqlCommand cmd = new SqlCommand("UPDATE users SET [password] = @p WHERE username = @u;", conn))
-    //         {
-    //             cmd.Parameters.AddWithValue("@u", u);
-    //             cmd.Parameters.AddWithValue("@p", p);
-    //             cmd.ExecuteNonQuery();
-    //         }
-    //     }
-    // }
-
+    }
 }
