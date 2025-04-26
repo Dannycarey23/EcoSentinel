@@ -89,12 +89,12 @@ public class DatabaseService
                             zone = (string)reader["zone"],
                             agglomeration = (string)reader["agglomeration"],
                             localAuthority = (string)reader["localAuthority"],
-                            date = (DateOnly)reader["date"],
+                            date = DateOnly.FromDateTime((DateTime)reader["date"]),
                             time = (TimeSpan)reader["time"],
-                            nitrogenDioxide = (float)reader["nitrogenDioxide"],
-                            sulfurDioxide = (float)reader["sulfurDioxide"],
-                            pmTwoPointFive = (float)reader["pmTwoPointFive"],   
-                            pmTen = (float)reader["pmTen"]
+                            nitrogenDioxide = reader["nitrogenDioxide"] is DBNull ? 0.0f : Convert.ToSingle(reader["nitrogenDioxide"]),
+                            sulfurDioxide = reader["sulfurDioxide"] is DBNull ? 0.0f : Convert.ToSingle(reader["sulfurDioxide"]),
+                            pmTwoPointFive = reader["pmTwoPointFive"] is DBNull ? 0.0f : Convert.ToSingle(reader["pmTwoPointFive"]),
+                            pmTen = reader["pmTen"] is DBNull ? 0.0f : Convert.ToSingle(reader["pmTen"])
                         });
                     }
                 }
