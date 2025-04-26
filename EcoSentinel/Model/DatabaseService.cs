@@ -121,12 +121,12 @@ public class DatabaseService
                             dataID = (int)reader["dataID"],
                             sensorID = (int)reader["sensorID"],
                             sensorType = (string)reader["sensorType"],
-                            date = (DateOnly)reader["date"],
+                            date = DateOnly.FromDateTime((DateTime)reader["date"]),
                             time = (TimeSpan)reader["time"],
-                            nitrateMgl1 = (float)reader["nitrateMgl1"],
-                            nitrateLessThanMgL1 = (float)reader["nitrateLessThanMgL1"],
-                            phosphateMgl1 = (float)reader["phosphateMgl1"],
-                            ecCfu100ml = (float)reader["ecCfu100ml"]
+                            nitrateMgl1 = reader["nitrateMgl1"] is DBNull ? 0.0f : Convert.ToSingle(reader["nitrateMgl1"]),
+                            nitrateLessThanMgL1 = reader["nitrateLessThanMgL1"] is DBNull ? 0.0f : Convert.ToSingle(reader["nitrateLessThanMgL1"]),
+                            phosphateMgl1 = reader["phosphateMgl1"] is DBNull ? 0.0f : Convert.ToSingle(reader["phosphateMgl1"]),
+                            ecCfu100ml = reader["ecCfu100ml"] is DBNull ? 0.0f : Convert.ToSingle(reader["ecCfu100ml"])
                         });
                     }
                 }
