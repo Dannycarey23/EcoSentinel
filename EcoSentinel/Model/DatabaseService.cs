@@ -152,15 +152,15 @@ public class DatabaseService
                             dataID = (int)reader["dataID"],
                             sensorID = (int)reader["sensorID"],
                             sensorType = (string)reader["sensorType"],
-                            elevation = (float)reader["elevation"],
+                            elevation = reader["elevation"] is DBNull ? 0.0f : Convert.ToSingle(reader["elevation"]),
                             utcOffsetSeconds = (int)reader["utcOffsetSeconds"],
                             timezone = (string)reader["timezone"],
                             timezoneAbr = (string)reader["timezoneAbr"],
-                            date = (DateOnly)reader["date"],
+                            date = DateOnly.FromDateTime((DateTime)reader["date"]),
                             time = (TimeSpan)reader["time"],
-                            temp2m = (float)reader["temp2m"],
-                            relativeHumidity2m = (float)reader["relativeHumidity2m"],
-                            windSpeed = (float)reader["windSpeed"],
+                            temp2m = reader["temp2m"] is DBNull ? 0.0f : Convert.ToSingle(reader["temp2m"]),
+                            relativeHumidity2m = reader["relativeHumidity2m"] is DBNull ? 0.0f : Convert.ToSingle(reader["relativeHumidity2m"]),
+                            windSpeed = reader["windSpeed"] is DBNull ? 0.0f : Convert.ToSingle(reader["windSpeed"]),
                             windDirection = (int)reader["windDirection"]
                         });
                     }
