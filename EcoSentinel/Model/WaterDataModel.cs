@@ -8,15 +8,20 @@ namespace EcoSentinel.Model
 {
     public class WaterDataModel
     {
-		public int dataID { get; }
-		public int sensorID { get; }
-		public string sensorType { get; }
-		public DateOnly date { get; }
-		public TimeSpan time { get; }
-		public float nitrateMgl1 { get; }
-		public float nitrateLessThanMgL1 { get; }
-		public float phosphateMgl1 { get; }
-		public float ecCfu100ml { get; }
+        public DatabaseService db;
+        public required int dataID { get; set; } 
+        public required int sensorID { get; set; } 
+        public required string sensorType { get; set; } 
+        public required DateOnly date { get; set; } 
+        public required TimeSpan time { get; set; } 
+        public required float nitrateMgl1 { get; set; } 
+        public required float nitrateLessThanMgL1 { get; set; } 
+        public required float phosphateMgl1 { get; set; } 
+        public required float ecCfu100ml { get; set; }
 
+        public WaterDataModel()
+        {
+            db = new DatabaseService();
+        }
     }
 }

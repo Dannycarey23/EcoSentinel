@@ -7,10 +7,10 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="80"/> <!-- Header -->
-                <RowDefinition Height="*"/>  <!-- Map & Node List -->
-                <RowDefinition Height="*"/>  <!-- Sensor Data -->
-                <RowDefinition Height="20"/> <!-- Footer -->
+                <RowDefinition Height="80"/> 
+                <RowDefinition Height="*"/>  
+                <RowDefinition Height="*"/>  
+                <RowDefinition Height="20"/> 
             </Grid.RowDefinitions>
         
             <Grid Grid.Row="0">
@@ -36,28 +36,42 @@
                              VerticalOptions="Fill"/>
 
                 </Border>
-                
-                <Border x:Name="nodeFrame"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Margin="5"
-                        Padding="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
 
-                
-                        <Label Grid.Row="0" Text="Sensor List" Padding="8" Background="LightGray" />                
-                        <Label Grid.Row="1" Text="Node 1" Padding="8" />
-                        <Label Grid.Row="2" Text="Node 2" Padding="8" />
-                        <Label Grid.Row="3" Text="Node 3" Padding="8" />
-                    </Grid>
-                </Border>
-            </Grid>
+            <Border x:Name="nodeFrame"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="5"
+                    Padding="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Text="Sensor List" Padding="8" Background="LightGray" />
+
+                    <ListView Grid.Row="1" Grid.RowSpan="3"
+                              ItemsSource="{Binding SensorData}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="8" Margin="4" >
+                                        <Label Text="{Binding siteName}" FontSize="18"/>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding BindingContext.NavigateCommand, Source={x:Reference nodeFrame}}"  
+                                                CommandParameter="{Binding .}" />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Border>
+        </Grid>
         
             <Grid Grid.Row="2">           
                 <Border x:Name="sensorDataFrame"

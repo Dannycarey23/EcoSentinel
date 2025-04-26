@@ -9,13 +9,13 @@ namespace EcoSentinel.Model;
     public class SensorModel
     {
         public DatabaseService db;
-        public int sensorId { get; set; } required
-        public string sensorType { get; set; } required
-        public string sensorStatus { get; set; } required
-        public double latitude { get; set; } required
-        public double longitude { get; set; } required
-        public string siteName { get; set; } required
-        public string siteType { get; set; } 
+        public required int sensorId { get; set; } 
+        public required string sensorType { get; set; } 
+        public required string sensorStatus { get; set; } 
+        public required double latitude { get; set; } 
+        public required double longitude { get; set; } 
+        public required string siteName { get; set; } 
+        public required string siteType { get; set; } 
 
         public SensorModel()
         {
