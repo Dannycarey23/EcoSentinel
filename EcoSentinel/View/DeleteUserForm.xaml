@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EcoSentinel.ViewModel"
+             x:Class="EcoSentinel.View.DeleteUserForm"
+             x:DataType="vm:DeleteUserFormViewModel">
+
+    <ContentPage.BindingContext>
+        <vm:DeleteUserFormViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="*,*,*"
+          ColumnDefinitions="50*,50*">
+        <Label Grid.Row="0" Text="Enter the Username of the User to delete."/>
+        <Entry Grid.Row="1" Grid.ColumnSpan="2" Placeholder="Username" Text="{Binding Username}" />
+        <Button Grid.Row="2" Grid.Column="0" Text="Delete User" Command="{Binding SubmitCommand}" />
+        <Button Grid.Row="2" Grid.Column="1" Text="Cancel" Command="{Binding CancelCommand}" />
+    </Grid>
+</ContentPage>
