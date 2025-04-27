@@ -8,19 +8,24 @@ namespace EcoSentinel.Model
 {
     public class AirDataModel
     {
-		public int dataID { get; }
-		public int sensorID { get; }
-		public string sensorType { get; }
-		public string zone { get; }
-		public string agglomeration { get; }
-		public string localAuthority { get; }
-		public DateOnly date { get; }
-		public TimeSpan time { get; }
-		public float nitrogenDioxide { get; }
-		public float sulfurDioxide { get; }
-		public float pmTwoPointFive { get; }
-		public float pmTen { get; }
+        public DatabaseService db;
+        public required int dataID { get; set; } 
+        public required int sensorID { get; set; } 
+        public required string sensorType { get; set; } 
+        public required string zone { get; set; }  
+		public required string agglomeration { get; set; } 
+        public required string localAuthority { get; set; } 
+		public required DateOnly date { get; set; } 
+        public required TimeSpan time { get; set; } 
+        public required float nitrogenDioxide { get; set; } 
+        public required float sulfurDioxide { get; set; } 
+        public required float pmTwoPointFive { get; set; } 
+        public required float pmTen { get; set; }
 
-
+        public AirDataModel()
+        {
+            db = new DatabaseService();
+        }
+           
     }
 }

@@ -7,10 +7,10 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="80"/> <!-- Header -->
-                <RowDefinition Height="*"/>  <!-- Map & Node List -->
-                <RowDefinition Height="*"/>  <!-- Sensor Data -->
-                <RowDefinition Height="20"/> <!-- Footer -->
+                <RowDefinition Height="80"/> 
+                <RowDefinition Height="*"/>  
+                <RowDefinition Height="*"/>  
+                <RowDefinition Height="20"/> 
             </Grid.RowDefinitions>
         
             <Grid Grid.Row="0">
@@ -36,54 +36,94 @@
                              VerticalOptions="Fill"/>
 
                 </Border>
-                
-                <Border x:Name="nodeFrame"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Margin="5"
-                        Padding="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
 
-                
-                        <Label Grid.Row="0" Text="Sensor List" Padding="8" Background="LightGray" />                
-                        <Label Grid.Row="1" Text="Node 1" Padding="8" />
-                        <Label Grid.Row="2" Text="Node 2" Padding="8" />
-                        <Label Grid.Row="3" Text="Node 3" Padding="8" />
+            <Border x:Name="nodeFrame"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="5"
+                    Padding="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Text="Sensor List" Padding="8" Background="LightGray" />
+
+                    <ListView Grid.Row="1" Grid.RowSpan="3"
+                              ItemsSource="{Binding SensorData}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="8" Margin="4" >
+                                        <Label Text="{Binding siteName}" FontSize="18"/>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding BindingContext.NavigateCommand, Source={x:Reference nodeFrame}}"  
+                                                CommandParameter="{Binding .}" />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Border x:Name="sensorDataFrame"
+                    Grid.Row="0"
+                    Grid.Column="0" 
+                    Margin="5"
+                    Padding="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0"
+                          BackgroundColor="lightgray"
+                          ColumnDefinitions="*,*,*,*,*,*,*,*,*,*"
+                          Padding="5">
+                        <Label Grid.Column="0" Text="Sensor Type" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="Elevation" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="2" Text="UTC Offset" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="3" Text="Timezone" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="4" Text="Date" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="5" Text="Time" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="6" Text="Temp2m" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="7" Text="Relative Humidity 2m" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="8" Text="Wind Speed" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="9" Text="Wind Direction" FontSize="16" FontAttributes="Bold"/>                        
                     </Grid>
-                </Border>
-            </Grid>
-        
-            <Grid Grid.Row="2">           
-                <Border x:Name="sensorDataFrame"
-                        Grid.Row="0"
-                        Grid.Column="0" 
-                        Margin="5">
-                    
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>                       
-                        </Grid.RowDefinitions>
-                    
-                        <Label Grid.Row="0" Text="Sensor Data" Padding="8" Background="LightGray" />
-                        <Label Grid.Row="1" Text="ENTRY" Padding="8" />
-                        <Label Grid.Row="2" Text="ENTRY" Padding="8" />
-                        <Label Grid.Row="3" Text="ENTRY" Padding="8" />
-                        <Label Grid.Row="4" Text="ENTRY" Padding="8" />                   
-                    </Grid>
-                </Border>
-            </Grid>
-            
-            <Grid Grid.Row="3">
+
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding WeatherData}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*">
+                                    <Label Grid.Column="0" Text="{Binding sensorType}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="1" Text="{Binding elevation}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="2" Text="{Binding utcOffsetSeconds}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="3" Text="{Binding timezone}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="4" Text="{Binding date}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="5" Text="{Binding time}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="6" Text="{Binding temp2m}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="7" Text="{Binding relativeHumidity2m}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="8" Text="{Binding windSpeed}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="9" Text="{Binding windDirection}" FontSize="14" Padding="5"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="3">
                 <local:FooterPage/>
             </Grid>
             

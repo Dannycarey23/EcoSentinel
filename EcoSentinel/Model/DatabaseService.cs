@@ -117,4 +117,106 @@ public class DatabaseService
         }
     }
 
+
+    public IEnumerable<AirDataModel> PopulateAirData()
+    {
+        var items = new ObservableCollection<AirDataModel>();
+        using (SqlConnection con = new SqlConnection(ConnectionString))
+        {
+            con.Open();
+            using (SqlCommand cmd = new SqlCommand("SELECT dataID, sensorID, sensorType, zone, agglomeration, localAuthority, date, time, nitrogenDioxide, sulfurDioxide, pmTwoPointFive, pmTen FROM dbo.airdata", con))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        items.Add(new AirDataModel
+                        {
+                            dataID = (int)reader["dataID"],
+                            sensorID = (int)reader["sensorID"],
+                            sensorType =(string)reader["sensorType"],
+                            zone = (string)reader["zone"],
+                            agglomeration = (string)reader["agglomeration"],
+                            localAuthority = (string)reader["localAuthority"],
+                            date = DateOnly.FromDateTime((DateTime)reader["date"]),
+                            time = (TimeSpan)reader["time"],
+                            nitrogenDioxide = reader["nitrogenDioxide"] is DBNull ? 0.0f : Convert.ToSingle(reader["nitrogenDioxide"]),
+                            sulfurDioxide = reader["sulfurDioxide"] is DBNull ? 0.0f : Convert.ToSingle(reader["sulfurDioxide"]),
+                            pmTwoPointFive = reader["pmTwoPointFive"] is DBNull ? 0.0f : Convert.ToSingle(reader["pmTwoPointFive"]),
+                            pmTen = reader["pmTen"] is DBNull ? 0.0f : Convert.ToSingle(reader["pmTen"])
+                        });
+                    }
+                }
+
+            }
+            return items;
+        }
+    }
+
+    public IEnumerable<WaterDataModel> PopulateWaterData()
+    {
+        var items = new ObservableCollection<WaterDataModel>();
+        using (SqlConnection con = new SqlConnection(ConnectionString))
+        {
+            con.Open();
+            using (SqlCommand cmd = new SqlCommand("SELECT dataID, sensorID, sensorType, date, time, nitrateMgl1, nitrateLessThanMgL1, phosphateMgl1, ecCfu100ml FROM dbo.waterdata", con))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        items.Add(new WaterDataModel
+                        {
+                            dataID = (int)reader["dataID"],
+                            sensorID = (int)reader["sensorID"],
+                            sensorType = (string)reader["sensorType"],
+                            date = DateOnly.FromDateTime((DateTime)reader["date"]),
+                            time = (TimeSpan)reader["time"],
+                            nitrateMgl1 = reader["nitrateMgl1"] is DBNull ? 0.0f : Convert.ToSingle(reader["nitrateMgl1"]),
+                            nitrateLessThanMgL1 = reader["nitrateLessThanMgL1"] is DBNull ? 0.0f : Convert.ToSingle(reader["nitrateLessThanMgL1"]),
+                            phosphateMgl1 = reader["phosphateMgl1"] is DBNull ? 0.0f : Convert.ToSingle(reader["phosphateMgl1"]),
+                            ecCfu100ml = reader["ecCfu100ml"] is DBNull ? 0.0f : Convert.ToSingle(reader["ecCfu100ml"])
+                        });
+                    }
+                }
+            }
+            return items;
+        }
+    }
+
+    public IEnumerable<WeatherDataModel> PopulateWeatherData()
+    {
+        var items = new ObservableCollection<WeatherDataModel>();
+        using (SqlConnection con = new SqlConnection(ConnectionString))
+        {
+            con.Open();
+            using (SqlCommand cmd = new SqlCommand("SELECT dataID, sensorID, sensorType, elevation, utcOffsetSeconds, timezone, timezoneAbr, date, time, temp2m, relativeHumidity2m, windSpeed, windDirection FROM dbo.weatherdata", con))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        items.Add(new WeatherDataModel
+                        {
+                            dataID = (int)reader["dataID"],
+                            sensorID = (int)reader["sensorID"],
+                            sensorType = (string)reader["sensorType"],
+                            elevation = reader["elevation"] is DBNull ? 0.0f : Convert.ToSingle(reader["elevation"]),
+                            utcOffsetSeconds = (int)reader["utcOffsetSeconds"],
+                            timezone = (string)reader["timezone"],
+                            timezoneAbr = (string)reader["timezoneAbr"],
+                            date = DateOnly.FromDateTime((DateTime)reader["date"]),
+                            time = (TimeSpan)reader["time"],
+                            temp2m = reader["temp2m"] is DBNull ? 0.0f : Convert.ToSingle(reader["temp2m"]),
+                            relativeHumidity2m = reader["relativeHumidity2m"] is DBNull ? 0.0f : Convert.ToSingle(reader["relativeHumidity2m"]),
+                            windSpeed = reader["windSpeed"] is DBNull ? 0.0f : Convert.ToSingle(reader["windSpeed"]),
+                            windDirection = (int)reader["windDirection"]
+                        });
+                    }
+                }
+            }
+            return items;
+
+        }
+    }
 }
