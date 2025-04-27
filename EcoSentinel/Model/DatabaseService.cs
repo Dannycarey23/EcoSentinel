@@ -89,12 +89,12 @@ public class DatabaseService
                             zone = (string)reader["zone"],
                             agglomeration = (string)reader["agglomeration"],
                             localAuthority = (string)reader["localAuthority"],
-                            date = (DateOnly)reader["date"],
+                            date = DateOnly.FromDateTime((DateTime)reader["date"]),
                             time = (TimeSpan)reader["time"],
-                            nitrogenDioxide = (float)reader["nitrogenDioxide"],
-                            sulfurDioxide = (float)reader["sulfurDioxide"],
-                            pmTwoPointFive = (float)reader["pmTwoPointFive"],   
-                            pmTen = (float)reader["pmTen"]
+                            nitrogenDioxide = reader["nitrogenDioxide"] is DBNull ? 0.0f : Convert.ToSingle(reader["nitrogenDioxide"]),
+                            sulfurDioxide = reader["sulfurDioxide"] is DBNull ? 0.0f : Convert.ToSingle(reader["sulfurDioxide"]),
+                            pmTwoPointFive = reader["pmTwoPointFive"] is DBNull ? 0.0f : Convert.ToSingle(reader["pmTwoPointFive"]),
+                            pmTen = reader["pmTen"] is DBNull ? 0.0f : Convert.ToSingle(reader["pmTen"])
                         });
                     }
                 }
@@ -121,12 +121,12 @@ public class DatabaseService
                             dataID = (int)reader["dataID"],
                             sensorID = (int)reader["sensorID"],
                             sensorType = (string)reader["sensorType"],
-                            date = (DateOnly)reader["date"],
+                            date = DateOnly.FromDateTime((DateTime)reader["date"]),
                             time = (TimeSpan)reader["time"],
-                            nitrateMgl1 = (float)reader["nitrateMgl1"],
-                            nitrateLessThanMgL1 = (float)reader["nitrateLessThanMgL1"],
-                            phosphateMgl1 = (float)reader["phosphateMgl1"],
-                            ecCfu100ml = (float)reader["ecCfu100ml"]
+                            nitrateMgl1 = reader["nitrateMgl1"] is DBNull ? 0.0f : Convert.ToSingle(reader["nitrateMgl1"]),
+                            nitrateLessThanMgL1 = reader["nitrateLessThanMgL1"] is DBNull ? 0.0f : Convert.ToSingle(reader["nitrateLessThanMgL1"]),
+                            phosphateMgl1 = reader["phosphateMgl1"] is DBNull ? 0.0f : Convert.ToSingle(reader["phosphateMgl1"]),
+                            ecCfu100ml = reader["ecCfu100ml"] is DBNull ? 0.0f : Convert.ToSingle(reader["ecCfu100ml"])
                         });
                     }
                 }
@@ -152,15 +152,15 @@ public class DatabaseService
                             dataID = (int)reader["dataID"],
                             sensorID = (int)reader["sensorID"],
                             sensorType = (string)reader["sensorType"],
-                            elevation = (float)reader["elevation"],
+                            elevation = reader["elevation"] is DBNull ? 0.0f : Convert.ToSingle(reader["elevation"]),
                             utcOffsetSeconds = (int)reader["utcOffsetSeconds"],
                             timezone = (string)reader["timezone"],
                             timezoneAbr = (string)reader["timezoneAbr"],
-                            date = (DateOnly)reader["date"],
+                            date = DateOnly.FromDateTime((DateTime)reader["date"]),
                             time = (TimeSpan)reader["time"],
-                            temp2m = (float)reader["temp2m"],
-                            relativeHumidity2m = (float)reader["relativeHumidity2m"],
-                            windSpeed = (float)reader["windSpeed"],
+                            temp2m = reader["temp2m"] is DBNull ? 0.0f : Convert.ToSingle(reader["temp2m"]),
+                            relativeHumidity2m = reader["relativeHumidity2m"] is DBNull ? 0.0f : Convert.ToSingle(reader["relativeHumidity2m"]),
+                            windSpeed = reader["windSpeed"] is DBNull ? 0.0f : Convert.ToSingle(reader["windSpeed"]),
                             windDirection = (int)reader["windDirection"]
                         });
                     }

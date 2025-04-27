@@ -9,6 +9,7 @@ public partial class WeatherSensorPageViewModel : INotifyPropertyChanged
 {
     private DatabaseService _databaseService;
     private ObservableCollection<SensorModel> _sensorData;
+    public ObservableCollection<WeatherDataModel> WeatherData { get; set; } = new();
     public Command<SensorModel> NavigateCommand { get; }
 
     public ObservableCollection<SensorModel> SensorData
@@ -26,13 +27,24 @@ public partial class WeatherSensorPageViewModel : INotifyPropertyChanged
         _databaseService = new DatabaseService();
         _sensorData = new ObservableCollection<SensorModel>();
         NavigateCommand = new Command<SensorModel>(OnNavigate);
-        LoadData();
+        LoadSensorData();
+        LoadWeatherData();
     }
-    private void LoadData()
+    private void LoadSensorData()
     {
         var dataList = _databaseService.PopulateSensorData();
         SensorData = new ObservableCollection<SensorModel>(dataList);
     }
+
+    private void LoadWeatherData()
+    {
+        var weatherData = _databaseService.PopulateWeatherData()
+            .OrderByDescending(x => x.date)
+            .ThenByDescending(x => x.time)
+            .Take(10);
+        WeatherData = new ObservableCollection<WeatherDataModel>(weatherData);
+    }
+
     private async void OnNavigate(SensorModel sensor)
     {
         Console.WriteLine($"Navigating to {sensor.sensorType} page...");

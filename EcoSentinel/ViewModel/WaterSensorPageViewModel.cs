@@ -9,6 +9,7 @@ public partial class WaterSensorPageViewModel : INotifyPropertyChanged
 {
     private DatabaseService _databaseService;
     private ObservableCollection<SensorModel> _sensorData;
+    public ObservableCollection<WaterDataModel> WaterData { get; set; } = new();
     public Command<SensorModel> NavigateCommand { get; }
 
     public ObservableCollection<SensorModel> SensorData
@@ -26,12 +27,22 @@ public partial class WaterSensorPageViewModel : INotifyPropertyChanged
         _databaseService = new DatabaseService();
         _sensorData = new ObservableCollection<SensorModel>();
         NavigateCommand = new Command<SensorModel>(OnNavigate);
-        LoadData();
+        LoadSensorData();
+        LoadWaterSensorData();
     }
-    private void LoadData()
+    private void LoadSensorData()
     {
         var dataList = _databaseService.PopulateSensorData();
         SensorData = new ObservableCollection<SensorModel>(dataList);
+    }
+
+    private void LoadWaterSensorData()
+    {
+        var waterData = _databaseService.PopulateWaterData()
+            .OrderByDescending(x => x.date)
+            .ThenByDescending(x => x.time)
+            .Take(10);
+        WaterData = new ObservableCollection<WaterDataModel>(waterData);
     }
 
     private async void OnNavigate(SensorModel sensor)
