@@ -28,7 +28,7 @@
             Grid.Column="0"
             Margin="5"
             Padding="0">
-
+                <!-- This google maps API key has been restricted to work only on the specific IP addresses of the developers. For anyone else, a new key would need to be obtained from google and added at the end of the URL below -->
                 <WebView Source="https://maps.googleapis.com/maps/api/staticmap?center=55.861111,-3.253888&amp;zoom=14&amp;size=600x400&amp;markers=size:mid|color:red|55.861111,-3.253888&amp;key=AIzaSyDZ_IPjUa_8adkSX8-In_yNEGtcmBYqLVk" 
                      Margin="0"
                      HorizontalOptions="Fill"
