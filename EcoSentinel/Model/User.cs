@@ -7,12 +7,12 @@ namespace EcoSentinel;
 public class User
 {
     public DatabaseService db;
-    public string username;
-    public string password;
-    public string role;
-    public string email;
-    public string fname;
-    public string lname;
+    public string username { get; set; }
+    public string password { get; set; }
+    public string role { get; set; }
+    public string email { get; set; }
+    public string fname { get; set; }
+    public string lname { get; set; }
 
     public User()
     {
@@ -26,9 +26,9 @@ public class User
         foreach (var item in db.PopulateUserData())
         { 
             if(u == item.username && p == item.password)
-                {
-                    valid = true;
-                }                
+            {
+                valid = true;
+            }                
         }
         return valid;
     }

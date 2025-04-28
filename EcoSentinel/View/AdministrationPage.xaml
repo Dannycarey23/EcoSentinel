@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoSentinel.View.AdministrationPage"
+             xmlns:local="clr-namespace:EcoSentinel.View">
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="User">
+            <MenuFlyoutItem Text="Add"
+                Command="{Binding AddUserCommand}"/>
+            <MenuFlyoutItem Text="Delete"
+                Command="{Binding DeleteUserCommand}"/>
+            <MenuFlyoutItem Text="Password Reset"
+                Command="{Binding PasswordResetCommand}"/>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <Grid RowDefinitions="80,*,50" 
+          ColumnDefinitions="25*,25*"
+          RowSpacing="10"
+          ColumnSpacing="10">
+        <!--HEADER (Row 0)-->
+        <Grid Grid.Row="0"
+              Grid.ColumnSpan="2">
+            <local:HeaderPage/>
+        </Grid>
+        
+        <!--User List (Row 1)-->
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="2"
+              RowDefinitions="Auto,*">
+            <!--Table Header-->
+            <Border Grid.Row="0">
+                <Grid ColumnDefinitions="20*,20*,20*,20*,20*">
+                    <Label Grid.Column="0" 
+                           Text="Username" 
+                           Padding="8" 
+                           FontSize="18"/>
+                    <Label Grid.Column="1" 
+                           Text="Role" 
+                           Padding="8" 
+                           FontSize="18"/>
+                    <Label Grid.Column="2" 
+                           Text="Email Address" 
+                           Padding="8" 
+                           FontSize="18"/>
+                    <Label Grid.Column="3" 
+                           Text="First Name" 
+                           Padding="8" 
+                           FontSize="18"/>
+                    <Label Grid.Column="4" 
+                           Text="Last Name" 
+                           Padding="8" 
+                           FontSize="18"/>
+                </Grid>
+            </Border>
+            
+            <!--Scrollable ListView-->
+            <ScrollView Grid.Row="1">
+                <ListView ItemsSource="{Binding UserList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="20*,20*,20*,20*,20*">
+                                    <Label Grid.Column="0" 
+                                           Text="{Binding username}" 
+                                           Padding="8" 
+                                           FontSize="18"/>
+                                    <Label Grid.Column="1" 
+                                           Text="{Binding role}" 
+                                           Padding="8" 
+                                           FontSize="18"/>
+                                    <Label Grid.Column="2" 
+                                           Text="{Binding email}" 
+                                           Padding="8" 
+                                           FontSize="18"/>
+                                    <Label Grid.Column="3" 
+                                           Text="{Binding fname}" 
+                                           Padding="8" 
+                                           FontSize="18"/>
+                                    <Label Grid.Column="4" 
+                                           Text="{Binding lname}" 
+                                           Padding="8" 
+                                           FontSize="18"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </Grid>
+        
+        <!--FOOTER (Row 2)-->
+        <Grid Grid.Row="2"
+              Grid.ColumnSpan="2">
+            <local:FooterPage/>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -29,12 +29,16 @@
         ContentTemplate="{DataTemplate local:WeatherSensorPage}"
         Route="WeatherSensorPage" />
     <ShellContent 
-        Title="LoginPage"
+        Title="Login"
         ContentTemplate="{DataTemplate view:LoginPage}"
         Route="LoginPage" />
+    <ShellContent 
+        Title="Administration"
+        ContentTemplate="{DataTemplate view:AdministrationPage}"
+        Route="AdministrationPage" />
         <ShellContent 
         Title="Historical Data"
         ContentTemplate="{DataTemplate view:HistoricalDataPage}"
         Route="HistoricalDataPage" />
-    
+
 </Shell>

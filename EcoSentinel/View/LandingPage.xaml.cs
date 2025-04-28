@@ -1,3 +1,4 @@
+using EcoSentinel.View;
 using EcoSentinel.ViewModel;
 
 namespace EcoSentinel;
@@ -22,5 +23,10 @@ public partial class LandingPage : ContentPage
 	public void weatherSensorFrameTapped(object sender, EventArgs e)
 	{
 		Shell.Current.GoToAsync(nameof(WeatherSensorPage));
+	}
+
+	public void adminFrameTapped(object sender, EventArgs e)
+	{
+		Shell.Current.GoToAsync(nameof(AdministrationPage));
 	}
 }

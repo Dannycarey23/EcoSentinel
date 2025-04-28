@@ -35,7 +35,7 @@ public partial class LoginPageViewModel: ObservableObject
         LoginMessage = "Redirecting to Registration Page...";
     }
 
-    async Task NavigateToLanding()
+    private async Task NavigateToLanding()
     {
         await Shell.Current.GoToAsync(nameof(LandingPage));
     }

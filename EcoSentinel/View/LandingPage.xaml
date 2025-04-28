@@ -21,16 +21,16 @@
 
         <!-- Content Area -->
         <Grid Grid.Row="1"
-              Padding="50, 150">
+              Padding="15, 15">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Grid Squares -->
@@ -42,9 +42,7 @@
                 BackgroundColor="LightBlue">
                 <Image Source="water.png"
                        Aspect="AspectFit"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HeightRequest="100"/>
+                       VerticalOptions="Center"/>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="waterSensorFrameTapped" />
                 </Frame.GestureRecognizers>
@@ -57,10 +55,7 @@
                 Margin="5"
                 BackgroundColor="LightBlue">
                 <Image Source="wind.png"
-                       Aspect="AspectFit"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HeightRequest="100"/>
+                       Aspect="AspectFit"/>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="airSensorFrameTapped" />
                 </Frame.GestureRecognizers>
@@ -72,10 +67,7 @@
                 Margin="5"
                 BackgroundColor="LightBlue">
                 <Image Source="weather.png"
-                       Aspect="AspectFit"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HeightRequest="100"/>
+                       Aspect="AspectFit"/>
                        <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="weatherSensorFrameTapped" />
                 </Frame.GestureRecognizers>
@@ -87,10 +79,7 @@
                 Margin="5"
                 BackgroundColor="LightBlue">
                 <Image Source="historical.png"
-                       Aspect="AspectFit"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HeightRequest="100"/>
+                       Aspect="AspectFit"/>
             </Frame>
             <Frame
                 x:Name="adminFrame"
@@ -99,10 +88,10 @@
                 Margin="5"
                 BackgroundColor="LightBlue">
                 <Image Source="admin.png"
-                       Aspect="AspectFit"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HeightRequest="100"/>
+                       Aspect="AspectFit"/>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="adminFrameTapped" />
+                </Frame.GestureRecognizers>
             </Frame>
             <Frame Grid.Row="1" Grid.Column="2" Margin="5" BackgroundColor="LightGray"/>
             <Frame Grid.Row="2" Grid.Column="0" Margin="5" BackgroundColor="LightGray"/>
