@@ -80,6 +80,9 @@
                 BackgroundColor="LightBlue">
                 <Image Source="historical.png"
                        Aspect="AspectFit"/>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="historicalFrameTapped" />
+                </Frame.GestureRecognizers>
             </Frame>
             <Frame
                 x:Name="adminFrame"
