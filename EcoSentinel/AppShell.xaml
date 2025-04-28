@@ -32,5 +32,9 @@
         Title="LoginPage"
         ContentTemplate="{DataTemplate view:LoginPage}"
         Route="LoginPage" />
+        <ShellContent 
+        Title="Historical Data"
+        ContentTemplate="{DataTemplate view:HistoricalDataPage}"
+        Route="HistoricalDataPage" />
     
 </Shell>

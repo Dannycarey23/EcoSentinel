@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:EcoSentinel.View"
+    x:Class="EcoSentinel.HistoricalDataPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>        
+            <RowDefinition Height="*"/>           
+            <RowDefinition Height="*"/>            
+            <RowDefinition Height="20"/>
+         
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <local:HeaderPage/>
+        </Grid>
+
+        <Grid Grid.Row="1" >            
+            <Border x:Name="nodeFrame"
+                Grid.Row="0"
+                Margin="5"
+                Padding="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Text="Sensor List" Padding="8" Background="LightGray" />
+
+                    <ListView Grid.Row="1" Grid.RowSpan="3"
+                              ItemsSource="{Binding SensorData}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame Padding="8" Margin="4" >
+                                        <Label Text="{Binding siteName}" FontSize="18"/>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                               Command="{Binding BindingContext.NavigateCommand, Source={x:Reference nodeFrame}}"  
+                                                CommandParameter="{Binding .}" />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Border x:Name="sensorDataFrame"
+            Grid.Row="0"
+            Grid.Column="0" 
+            Margin="5"
+            Padding="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0"
+                          BackgroundColor="lightgray"
+                          ColumnDefinitions="*,*,*,*,*,*,*,*"
+                          Padding="5">
+                        <Label Grid.Column="0" Text="Sensor Type" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="Zone" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="2" Text="Agglomeration" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="3" Text="Date" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="4" Text="Time" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="5" Text="NO₂" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="6" Text="SO₂" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="7" Text="PM2.5" FontSize="16" FontAttributes="Bold"/>
+                    </Grid>
+
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding AirData}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*">
+                                    <Label Grid.Column="0" Text="{Binding sensorType}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="1" Text="{Binding zone}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="2" Text="{Binding agglomeration}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="3" Text="{Binding date}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="4" Text="{Binding time}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="5" Text="{Binding nitrogenDioxide}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="6" Text="{Binding sulfurDioxide}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="7" Text="{Binding pmTwoPointFive}" FontSize="14" Padding="5"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Border>
+        </Grid>
+
+
+        <Grid Grid.Row="3">
+            <local:FooterPage/>
+        </Grid>
+
+    </Grid>
+</ContentPage>
