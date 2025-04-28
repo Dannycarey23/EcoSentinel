@@ -93,10 +93,19 @@
                     <TapGestureRecognizer Tapped="adminFrameTapped" />
                 </Frame.GestureRecognizers>
             </Frame>
-            <Frame Grid.Row="1" Grid.Column="2" Margin="5" BackgroundColor="LightGray"/>
-            <Frame Grid.Row="2" Grid.Column="0" Margin="5" BackgroundColor="LightGray"/>
-            <Frame Grid.Row="2" Grid.Column="1" Margin="5" BackgroundColor="LightGray"/>
-            <Frame Grid.Row="2" Grid.Column="2" Margin="5" BackgroundColor="LightGray"/>
+            <Frame 
+                x:Name="sensorStatus" 
+                Grid.Row="1" 
+                Grid.Column="2" 
+                Margin="5" 
+                BackgroundColor="LightBlue">
+                <Image Source="sensorstatus.png"
+                       Aspect="AspectFit"/>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="sensorStatusFrameTapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
         </Grid>
 
         <!-- Footer -->

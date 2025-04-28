@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:EcoSentinel.View"
+    x:Class="EcoSentinel.SensorStatusPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>            
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <local:HeaderPage/>
+        </Grid>
+
+
+        <Grid Grid.Row="1">
+            <Border x:Name="sensorDataFrame"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="5"
+                    Padding="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0"
+                              BackgroundColor="lightgray"
+                              ColumnDefinitions="*,*,*,*,*,*"
+                              Padding="5">
+                        <Label Grid.Column="0" Text="Sensor Type" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="Sensor Status" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="2" Text="Latitude" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="3" Text="Longitude" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="4" Text="Site Name" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="5" Text="Site Type" FontSize="16" FontAttributes="Bold"/>
+                    </Grid>
+
+                    <CollectionView Grid.Row="1" ItemsSource="{Binding SensorData}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="*,*,*,*,*,*">
+                                    <Label Grid.Column="0" Text="{Binding sensorType}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="1" Text="{Binding sensorStatus}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="2" Text="{Binding latitude}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="3" Text="{Binding longitude}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="4" Text="{Binding siteName}" FontSize="14" Padding="5"/>
+                                    <Label Grid.Column="5" Text="{Binding siteType}" FontSize="14" Padding="5"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Border>
+        </Grid>
+
+
+        <Grid Grid.Row="2">
+            <local:FooterPage/>
+        </Grid>
+
+    </Grid>
+</ContentPage>

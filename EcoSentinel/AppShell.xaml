@@ -36,5 +36,10 @@
         Title="Administration"
         ContentTemplate="{DataTemplate view:AdministrationPage}"
         Route="AdministrationPage" />
+    <ShellContent 
+        Title="SensorStatusPage"
+        ContentTemplate="{DataTemplate local:SensorStatusPage}"
+        Route="SensorStatusPage" />
+    
 
 </Shell>
