@@ -56,10 +56,12 @@ public static class MauiProgram
 		builder.Services.AddTransient<AdministrationPageViewModel>();
 		builder.Services.AddTransient<AdministrationPage>();
 
-        builder.Services.AddTransient<SensorStatusViewModel>();
-        builder.Services.AddTransient<SensorStatusPage>();
+    builder.Services.AddTransient<HistoricalDataPageViewModel>();
+		builder.Services.AddTransient<HistoricalDataPage>();
 
-
+    builder.Services.AddTransient<SensorStatusViewModel>();
+    builder.Services.AddTransient<SensorStatusPage>();
+    
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

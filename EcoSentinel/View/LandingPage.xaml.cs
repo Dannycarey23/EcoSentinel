@@ -30,8 +30,14 @@ public partial class LandingPage : ContentPage
 		Shell.Current.GoToAsync(nameof(AdministrationPage));
 	}
 
-	public void sensorStatusFrameTapped(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync(nameof(SensorStatusPage));
-    }
+	public void historicalFrameTapped(object sender, EventArgs e)
+	{
+		Shell.Current.GoToAsync(nameof(HistoricalDataPage));
+	}
+  
+  public void sensorStatusFrameTapped(object sender, EventArgs e)
+ {
+    Shell.Current.GoToAsync(nameof(SensorStatusPage));
+ }
+
 }
