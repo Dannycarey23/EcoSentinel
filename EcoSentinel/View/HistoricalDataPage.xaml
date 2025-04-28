@@ -3,8 +3,54 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:EcoSentinel.View"
-    x:Class="EcoSentinel.HistoricalDataPage">
-
+    xmlns:selectors="clr-namespace:EcoSentinel.Selectors"
+    x:Class="EcoSentinel.View.HistoricalDataPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--DATA TEMPLATES-->
+            <DataTemplate x:Key="AirDataTemplate">
+                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*">
+                    <Label Grid.Column="0" Text="{Binding sensorType}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="1" Text="{Binding zone}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="2" Text="{Binding agglomeration}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="3" Text="{Binding date}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="4" Text="{Binding time}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="5" Text="{Binding nitrogenDioxide}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="6" Text="{Binding sulfurDioxide}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="7" Text="{Binding pmTwoPointFive}" FontSize="14" Padding="5"/>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="WaterDataTemplate">
+                <Grid ColumnDefinitions="*,*,*,*,*,*,*">
+                    <Label Grid.Column="0" Text="{Binding sensorType}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="1" Text="{Binding date}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="2" Text="{Binding time}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="3" Text="{Binding nitrateMgl1}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="4" Text="{Binding nitrateLessThanMgL1}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="5" Text="{Binding phosphateMgl1}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="6" Text="{Binding ecCfu100ml}" FontSize="14" Padding="5"/>                                    
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="WeatherDataTemplate">
+                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*">
+                    <Label Grid.Column="0" Text="{Binding sensorType}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="1" Text="{Binding elevation}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="2" Text="{Binding utcOffsetSeconds}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="3" Text="{Binding timezone}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="4" Text="{Binding date}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="5" Text="{Binding time}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="6" Text="{Binding temp2m}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="7" Text="{Binding relativeHumidity2m}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="8" Text="{Binding windSpeed}" FontSize="14" Padding="5"/>
+                    <Label Grid.Column="9" Text="{Binding windDirection}" FontSize="14" Padding="5"/>
+                </Grid>
+            </DataTemplate>
+            <selectors:DataTypeTemplateSelector x:Key="DataTypeTemplateSelector"
+                AirDataTemplate="{StaticResource AirDataTemplate}"
+                WaterDataTemplate="{StaticResource WaterDataTemplate}"
+                WeatherDataTemplate="{StaticResource WeatherDataTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>        
@@ -56,50 +102,21 @@
 
         <Grid Grid.Row="2">
             <Border x:Name="sensorDataFrame"
-            Grid.Row="0"
-            Grid.Column="0" 
-            Margin="5"
-            Padding="10">
+                    Grid.Row="0"
+                    Margin="5"
+                    Padding="10">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0"
-                          BackgroundColor="lightgray"
-                          ColumnDefinitions="*,*,*,*,*,*,*,*"
-                          Padding="5">
-                        <Label Grid.Column="0" Text="Sensor Type" FontSize="16" FontAttributes="Bold"/>
-                        <Label Grid.Column="1" Text="Zone" FontSize="16" FontAttributes="Bold"/>
-                        <Label Grid.Column="2" Text="Agglomeration" FontSize="16" FontAttributes="Bold"/>
-                        <Label Grid.Column="3" Text="Date" FontSize="16" FontAttributes="Bold"/>
-                        <Label Grid.Column="4" Text="Time" FontSize="16" FontAttributes="Bold"/>
-                        <Label Grid.Column="5" Text="NO₂" FontSize="16" FontAttributes="Bold"/>
-                        <Label Grid.Column="6" Text="SO₂" FontSize="16" FontAttributes="Bold"/>
-                        <Label Grid.Column="7" Text="PM2.5" FontSize="16" FontAttributes="Bold"/>
-                    </Grid>
-
-                    <CollectionView Grid.Row="1" ItemsSource="{Binding AirData}">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*">
-                                    <Label Grid.Column="0" Text="{Binding sensorType}" FontSize="14" Padding="5"/>
-                                    <Label Grid.Column="1" Text="{Binding zone}" FontSize="14" Padding="5"/>
-                                    <Label Grid.Column="2" Text="{Binding agglomeration}" FontSize="14" Padding="5"/>
-                                    <Label Grid.Column="3" Text="{Binding date}" FontSize="14" Padding="5"/>
-                                    <Label Grid.Column="4" Text="{Binding time}" FontSize="14" Padding="5"/>
-                                    <Label Grid.Column="5" Text="{Binding nitrogenDioxide}" FontSize="14" Padding="5"/>
-                                    <Label Grid.Column="6" Text="{Binding sulfurDioxide}" FontSize="14" Padding="5"/>
-                                    <Label Grid.Column="7" Text="{Binding pmTwoPointFive}" FontSize="14" Padding="5"/>
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                    <!-- Data Row -->
+                    <CollectionView Grid.Row="1" 
+                        ItemsSource="{Binding CurrentData}"
+                        ItemTemplate="{StaticResource DataTypeTemplateSelector}"/>
                 </Grid>
             </Border>
         </Grid>
-
 
         <Grid Grid.Row="3">
             <local:FooterPage/>

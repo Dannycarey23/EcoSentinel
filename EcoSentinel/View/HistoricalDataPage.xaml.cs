@@ -7,6 +7,6 @@ public partial class HistoricalDataPage : ContentPage
 	public HistoricalDataPage()
 	{
 		InitializeComponent();
-		BindingContext = new HistoricalPageViewModel();
+		BindingContext = new HistoricalDataPageViewModel();
 	}
 }
