@@ -56,6 +56,9 @@ public static class MauiProgram
 		builder.Services.AddTransient<AdministrationPageViewModel>();
 		builder.Services.AddTransient<AdministrationPage>();
 		
+		builder.Services.AddTransient<HistoricalDataPageViewModel>();
+		builder.Services.AddTransient<HistoricalDataPage>();
+		
 
 #if DEBUG
 		builder.Logging.AddDebug();

@@ -36,5 +36,9 @@
         Title="Administration"
         ContentTemplate="{DataTemplate view:AdministrationPage}"
         Route="AdministrationPage" />
+        <ShellContent 
+        Title="Historical Data"
+        ContentTemplate="{DataTemplate view:HistoricalDataPage}"
+        Route="HistoricalDataPage" />
 
 </Shell>
